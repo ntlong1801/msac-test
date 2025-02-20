@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+
+    /* Modules */
+    "module": "commonjs",
+    "rootDir": "./src", 
+    "baseUrl": "./",                                 
+    "paths": {
+      "@services/*": ["src/services/*"],
+      "@utils/*": ["src/utils/*"]
+    },                                    
+  
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    /* Type Checking */
+    "strict": true,
+
+    /* Completeness */
+    "skipLibCheck": true,
+  },
+  "include": ["**/*"],
+  "exclude": ["node_modules", "dist"]
+}
