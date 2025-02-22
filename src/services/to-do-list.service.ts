@@ -1,7 +1,7 @@
 import { toDoListDto } from '@dto/to-do-list.dto';
 import { ToDoList } from '@entities/to-do-list.entity';
 import { getToDoListRepository } from '@repositories/to-do-list.repository';
-import { ToDoListNotFoundException } from 'src/exceptions/to-do-list.exception';
+import { ToDoListNotFoundException } from '@exceptions/to-do-list.exception';
 import { Repository } from 'typeorm';
 
 export default class ToDoListService {

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "ES2022",
 
     /* Modules */
     "module": "commonjs",
@@ -11,6 +11,7 @@
       "@services/*": ["src/services/*"],
       "@dto/*": ["src/dto/*"],
       "@entities/*": ["src/entities/*"],
+      "@exceptions/*": ["src/exceptions/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@middlewares/*": ["src/middlewares/*"],
       "@repositories/*": ["src/repositories/*"],

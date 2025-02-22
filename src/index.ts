@@ -29,3 +29,5 @@ AppDataSource.initialize().then(() => {
   });
 })
 
+export default app;
+

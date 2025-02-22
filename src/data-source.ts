@@ -6,7 +6,7 @@ export const AppDataSource = new DataSource({
   database: "./database.sqlite",
   entities: [ToDoList],
   synchronize: true,
-  logging: true,
+  // logging: true,
 });
 
 export const getConnection = async () => {
