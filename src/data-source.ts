@@ -1,10 +1,17 @@
 import { DataSource } from "typeorm";
-import { User } from "./entities/user.entity";
+import { ToDoList } from "./entities/to-do-list.entity";
 
 export const AppDataSource = new DataSource({
   type: "sqlite",
   database: "./database.sqlite",
-  entities: [User],
+  entities: [ToDoList],
   synchronize: true,
   logging: true,
 });
+
+export const getConnection = async () => {
+  if (!AppDataSource.isInitialized) {
+    await AppDataSource.initialize();
+  }
+  return AppDataSource;
+};

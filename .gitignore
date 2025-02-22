@@ -36,5 +36,5 @@ lerna-debug.log*
 
 .env
 
-data-chatbot/en/data.jsonl
-data-chatbot/vi/data.jsonl
+# database
+database.sqlite

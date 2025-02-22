@@ -1,6 +1,11 @@
-import express, { Express, Request, Response } from "express";
+import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import "reflect-metadata";
+import router from "./routes";
+import { AppDataSource } from "./data-source";
+import bodyParser from "body-parser";
+import errorMiddleware from "@middlewares/errorHandler";
+
 
 dotenv.config();
 
@@ -11,6 +16,16 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Ser");
 });
 
-app.listen(port, () => {
-  console.log(`[server]: Server is running at http://localhost:${port}`);
-});
+app.use(bodyParser.json());
+
+AppDataSource.initialize().then(() => {
+  console.log('Database connected');
+  router(app);
+
+  app.use(errorMiddleware);
+
+  app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+  });
+})
+
