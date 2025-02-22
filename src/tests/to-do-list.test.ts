@@ -84,6 +84,16 @@ describe("ToDoList API", () => {
       await request(testApp).post("/api/todos").send(invalidTodo).expect(400);
     });
 
+    it("should reject because name exceed 80 charactors", async () => {
+      const invalidTodo = {
+        name: "This is a very long todo name that definitely exceeds eighty characters and should cause a validation error",
+        startDate: "2025-02-01",
+        endDate: "2025-02-28",
+      };
+
+      await request(testApp).post("/api/todos").send(invalidTodo).expect(400);
+    });
+
     it("should reject because name not present", async () => {
       const invalidTodo = {
         startDate: "2025-02-01",
@@ -131,6 +141,16 @@ describe("ToDoList API", () => {
       const invalidTodo = {
         name: "Invalid Todo",
         endDate: "2025-02-01",
+      };
+
+      await request(testApp).patch(`/api/todos/${testToDoList.id}`).send(invalidTodo).expect(400);
+    });
+
+    it("should reject because name exceed 80 charactors", async () => {
+      const invalidTodo = {
+        name: "This is a very long todo name that definitely exceeds eighty characters and should cause a validation error",
+        startDate: "2025-02-01",
+        endDate: "2025-02-28",
       };
 
       await request(testApp).patch(`/api/todos/${testToDoList.id}`).send(invalidTodo).expect(400);
